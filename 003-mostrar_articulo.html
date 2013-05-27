@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>003-mostrar_articulo.html</title>
+  <style type="text/css">
+
+body,html {height:100%}
+
+
+body
+{
+   background-color: #FFFFFF;
+   color: #000000;
+}
+</style>
+<style type="text/css">
+a
+{
+   color: #C8D7EB;
+   outline: none;
+   text-decoration: underline;
+}
+a:visited
+{
+   color: #C8D7EB;
+}
+a:active
+{
+   color: #C8D7EB;
+}
+a:hover
+{
+   color: #376BAD;
+   text-decoration: underline;
+}
+
+textarea {
+    text-align: center;
+}
+</style>
+</head>
+ 
+ 
+ <body  style="background-color: rgb(255,212,42)">
+ 
+ 
+ <button id="AdvancedButton1" type="button" name="" value="" style="width:25%;height:10%;z-index:0;background-color: rgb(170,68,0)" onclick="myFunctionVOLVER()">
+  <div style="text-align:center">
+   <span style="color: rgb(255,204,0);font-family:Arial;font-size:13px">volver</span>
+  </div>
+</button>
+ <button id="AdvancedButton1" type="button" name="" value="" style="width:25%;height:10%;z-index:0;background-color: rgb(170,68,0)" onclick="myFunction()">
+  <div style="text-align:center">
+   <span style="color:rgb(255,204,0);font-family:Arial;font-size:13px">volver</span>
+  </div>
+</button>
+ 
+ <div
+ style="text-align: center; font-weight: bold; color: rgb(153, 0, 0);">CÓDIGO
+CIVIL art. <script>document.write(window.parent.articuloACTUAL)</script>
+</div>
+
+ 
+ 
+ 
+ <form name="formulario" style="width:100%; height:50%;"> 
+  <textarea id="TEXTAREA" readonly="readonly" style="width:100%; height:100%;" name="texto">
+  </textarea>
+ </form>
+  
+ 
+ 
+ <table style="text-align: left; width: 100%; height: 25%;" border="1"
+cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td colspan="2" rowspan="1" style="vertical-align: top; height: 100%; width: 70%;">
+<button id="AdvancedButton1" type="button" name="" value="" style="width:100%;height:100%;z-index:0;background-color: rgb(211,198,95)" onclick="myFunction()">
+  <div style="text-align:center">
+   <span style="color:rgb(128,51,0);font-family:Arial;font-size:13px">PRESIONA PARA JUGAR</span>
+  </div>
+</button>
+
+</td>
+
+</tr>
+</tbody>
+</table>
+ 
+ 
+ 
+ 
+ <script>
+ document.getElementById ("TEXTAREA").value = window.parent.articulos[window.parent.articuloACTUAL];
+ 
+ function myFunction()
+{
+document.location='004-juego.html';
+}
+
+ function myFunctionVOLVER()
+{
+document.location='002-menu_de_seleccion_de_titulo_o_capitulo_o_seccion.html';
+}
+
+</script>
+ 
+ </script>
+ 
+ 
+ </body>
+ 
+ </html>
+ 
+ 

@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>003-mostrar_articulo.html</title>
+  
+    <style type="text/css">
+
+body,html {height:100%}
+
+
+body
+{
+   background-color: #FFFFFF;
+   color: #000000;
+}
+</style>
+<style type="text/css">
+a
+{
+   color: #C8D7EB;
+   outline: none;
+   text-decoration: underline;
+}
+a:visited
+{
+   color: #C8D7EB;
+}
+a:active
+{
+   color: #C8D7EB;
+}
+a:hover
+{
+   color: #376BAD;
+   text-decoration: underline;
+}
+</style>
+  
+  
+ </head>
+ 
+ 
+ <body style="background-color: rgb(255,212,42)" >
+ 
+ <button id="AdvancedButton1" type="button" name="" value="" style="width:25%;height:10%;z-index:0;" onclick="myFunctionVOLVER()">
+  <div style="text-align:center">
+   <span style="color:#000000;font-family:Arial;font-size:13px">volver</span>
+  </div>
+</button>
+ <button id="AdvancedButton1" type="button" name="" value="" style="width:25%;height:10%;z-index:0;" onclick="myFunctionLIMPIAR()">
+  <div style="text-align:center">
+   <span style="color:#000000;font-family:Arial;font-size:13px">LIMPIAR</span>
+  </div>
+</button>
+ 
+ 
+ <div
+ style="text-align: center; font-weight: bold; color: rgb(153, 0, 0);">CÓDIGO
+CIVIL art. <script>document.write(window.parent.articuloACTUAL)</script>
+</div>
+ 
+ 
+ 
+ 
+ 
+ 
+ <form name="formulario" style="width:100%; height:25%;"> 
+  <textarea id="TEXTAREA" readonly="readonly" style="width:100%; height:100%;" name="texto">
+  </textarea>
+ </form>
+ 
+ <br>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<script>
+//***************************************LEER_FRASE_y_PARTIRLA_EN_PALABRAS_*******************************:
+
+ 
+ var FRASE=window.parent.articulos[window.parent.articuloACTUAL];
+ var PALABRA=new Array ();
+ var NUMEROdePALABRAS=1;
+ 
+ for (var F=0;F<100;F++)
+ {
+ PALABRA[F]="";
+ }
+ 
+ for (var F=0;F<FRASE.length;F++)
+ {
+ 
+  if ((FRASE.substring(F,F+1)!=" ") && (FRASE.substring(F,F+1)!=".") && (FRASE.substring(F,F+1)!=",")){
+  PALABRA[NUMEROdePALABRAS]=PALABRA[NUMEROdePALABRAS]+FRASE.substring(F,F+1);
+  }
+  
+  if ((FRASE.substring(F,F+1)==" ")){
+   //document.write(PALABRA[NUMEROdePALABRAS]);
+   //document.write("<br><br>");
+   NUMEROdePALABRAS=NUMEROdePALABRAS+1;
+   }
+   
+ }
+    //document.write(PALABRA[NUMEROdePALABRAS]);
+
+  if ((FRASE.substring(F,F+1)==" ")){
+   //document.write(PALABRA[NUMEROdePALABRAS]);
+   //document.write("<br><br>");
+   NUMEROdePALABRAS=NUMEROdePALABRAS+1;
+   }
+
+   
+ //*************************************CALCULAR_PALABRAS_CON_DETERMINANTES_DELANTE*******************************:
+var numeroDEpalabrasCONdeterminante=0;
+var PALABRAconDETERMINANTE= new Array();
+for (var F=0;F<100;F++)
+ {
+  PALABRAconDETERMINANTE[F]="";
+ }
+ 
+ numeroDEpalabrasCONdeterminante=1
+ var SEcumpleLAcondicion=0;
+ for (var F=1;F<NUMEROdePALABRAS+1;F++)
+ {
+   SEcumpleLAcondicion=0;
+   if (PALABRA[F-1]=="La"){SEcumpleLAcondicion=1}
+   if (PALABRA[F-1]=="Las"){SEcumpleLAcondicion=1}   
+   if (PALABRA[F-1]=="la"){SEcumpleLAcondicion=1}
+   if (PALABRA[F-1]=="las"){SEcumpleLAcondicion=1}   
+   if (PALABRA[F-1]=="El"){SEcumpleLAcondicion=1}   
+   if (PALABRA[F-1]=="el"){SEcumpleLAcondicion=1}   
+   if (PALABRA[F-1]=="Los"){SEcumpleLAcondicion=1}   
+   if (PALABRA[F-1]=="los"){SEcumpleLAcondicion=+1}   
+   if (PALABRA[F-1]=="De"){SEcumpleLAcondicion=+1}  
+   if (PALABRA[F-1]=="de"){SEcumpleLAcondicion=+1}  	
+   if (PALABRA[F-1]=="Del"){SEcumpleLAcondicion=+1}  	
+   if (PALABRA[F-1]=="del"){SEcumpleLAcondicion=+1}  	
+   if (PALABRA[F-1]=="Un"){SEcumpleLAcondicion=+1}  	
+   if (PALABRA[F-1]=="un"){SEcumpleLAcondicion=+1}  	
+   if (PALABRA[F-1]=="Una"){SEcumpleLAcondicion=+1}  	
+   if (PALABRA[F-1]=="una"){SEcumpleLAcondicion=+1}  	
+   if (PALABRA[F-1]=="Unos"){SEcumpleLAcondicion=+1}  	
+   if (PALABRA[F-1]=="unos"){SEcumpleLAcondicion=+1}  	
+   if (PALABRA[F-1]=="Unas"){SEcumpleLAcondicion=+1}  	
+   if (PALABRA[F-1]=="unas"){SEcumpleLAcondicion=+1}  	
+
+	
+   if (SEcumpleLAcondicion==0){
+   //if ((PALABRA[F-1]!="la") && (PALABRA[F-1]!="las") && (PALABRA[F-1]!="el") && (PALABRA[F-1]!="los")){
+   
+      PALABRAconDETERMINANTE[numeroDEpalabrasCONdeterminante]=PALABRAconDETERMINANTE[numeroDEpalabrasCONdeterminante]+PALABRA[F];
+   }	  
+      if (SEcumpleLAcondicion==1){
+	  //if ((PALABRA[F-1]=="la") || (PALABRA[F-1]=="las")|| (PALABRA[F-1]=="el")|| (PALABRA[F-1]=="los")){
+        numeroDEpalabrasCONdeterminante=numeroDEpalabrasCONdeterminante-1;
+		//PALABRAconDETERMINANTE[numeroDEpalabrasCONdeterminante]=PALABRA[F-1]+" "+PALABRA[F];
+		PALABRAconDETERMINANTE[numeroDEpalabrasCONdeterminante]=PALABRAconDETERMINANTE[numeroDEpalabrasCONdeterminante]+" "+PALABRA[F];
+
+      }
+	  
+      numeroDEpalabrasCONdeterminante=numeroDEpalabrasCONdeterminante+1;
+        
+ }
+ 
+   
+   
+//**************************************CALCULAR_LA_FRASE_CORRECTA*******************************************:
+ 
+ var FRASEcorrecta="";
+ for (var F=1;F<NUMEROdePALABRAS+1;F++)
+ {
+ FRASEcorrecta=FRASEcorrecta+" "+PALABRA[F];
+ }
+
+ //**************************************CALCULAR_ORDEN_ALEATORIO_DE_LOS_BOTONES****************************
+ 
+ var ORDENalAZAR= new Array();
+  for (var F=0;F<100;F++)
+ {
+  ORDENalAZAR[F]=0;
+ }
+ 
+ var valorALazar=0;
+ var elNUMEROyaESTA=0;
+for (var F=1;F<numeroDEpalabrasCONdeterminante;F++)
+ {
+   valorALazar=0;
+   valorALazar=Math.floor((Math.random()*(numeroDEpalabrasCONdeterminante-1))+1);
+     //document.write(valorALazar+"inicial <br>");
+
+   elNUMEROyaESTA=0;
+  for (var T=1;T<numeroDEpalabrasCONdeterminante;T++)
+   {
+     if (valorALazar==ORDENalAZAR[T])
+	 {
+	   elNUMEROyaESTA=1;
+	   //document.write(ORDENalAZAR[T]+" medio <br>");
+     }
+   }
+   
+   if (elNUMEROyaESTA==0){
+     ORDENalAZAR[F]=valorALazar;
+	 //document.write(ORDENalAZAR[F]+"final <br>");
+	 }
+   if (elNUMEROyaESTA==1){F=F-1;}
+   
+   elNUMEROyaESTA=0;
+   
+ }
+ 
+ 
+ //for (var F=1;F<numeroDEpalabrasCONdeterminante;F++)
+ //{
+ 
+  //document.write(ORDENalAZAR[F]+"<br>");
+
+ //}
+ 
+ 
+	
+//********************************************CREAR_LOS_BOTONES***********************************************:
+
+ document.write("<table style=\"text-align: left; width: 100%;\" border=\"1\"");
+ document.write("cellpadding=\"2\" cellspacing=\"2\">");
+ document.write("  <tbody>");
+ 
+ 
+ //for (var F=1;F<NUMEROdePALABRAS+1;F++) 
+ for (var F=1;F<numeroDEpalabrasCONdeterminante;F++)
+ {
+ if (Math.floor((F/2))*2!=F)
+{
+  document.write("     <tr>"); 
+} 
+
+  document.write("      <td colspan=\"1\" rowspan=\"1\""); 
+  document.write("       style=\"vertical-align: top; height: 50px; width: 50%;\">");   
+
+  document.write("       <button id=\"AdvancedButton1\" type=\"button\" name=\"\" value=\"\" style=\"width:100%;height:100%;z-index:0;");
+  
+  if (Math.floor((F/2))*2==F){document.write("background-color: rgb(255,221,85)\" onclick=\"myFunction("+F+")\">");}
+  if (Math.floor((F/2))*2!=F){document.write("background-color: rgb(255,238,170)\" onclick=\"myFunction("+F+")\">");}
+  
+  document.write("       <div style=\"text-align:center\">");
+  document.write("       <span style=\"color:rgb(128,0,0);font-family:Arial;font-size:13px\">");
+  document.write(PALABRAconDETERMINANTE[ORDENalAZAR[F]]);
+  document.write("		</span>");
+  document.write("       </div>");
+  document.write("	   </button>");
+  document.write("      </td>");
+  
+if (Math.floor((F/2))*2==F) 
+{
+  document.write("    </tr>"); 
+ }
+
+ 
+ }
+ 	
+  document.write("  </tbody>");
+  document.write("</table>");
+  
+  //document.write(PALABRA[NUMEROdePALABRAS]);:
+</script>
+ 
+ 
+ 
+ 
+ 
+ <script>
+ document.getElementById ("TEXTAREA").value = window.parent.FRASEconstruida;
+ 
+ function myFunction(numero)
+{
+window.parent.FRASEconstruida=window.parent.FRASEconstruida+" "+PALABRAconDETERMINANTE[ORDENalAZAR[numero]];
+document.getElementById ("TEXTAREA").value = window.parent.FRASEconstruida;
+if ((window.parent.FRASEconstruida)==FRASEcorrecta){
+ window.parent.articuloACTUAL=window.parent.articuloACTUAL+1;
+ window.parent.FRASEconstruida="";
+ document.location='003-mostrar_articulo.html';
+ }
+
+}
+
+
+ function myFunctionLIMPIAR()
+{
+window.parent.FRASEconstruida="";
+document.getElementById ("TEXTAREA").value = window.parent.FRASEconstruida;
+
+//document.location='004-juego.html';
+}
+
+
+</script>
+ 
+ 
+ </body>
+ 
+ </html>
